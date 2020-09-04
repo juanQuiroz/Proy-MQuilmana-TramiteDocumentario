@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import imgLogin from "../assets/img/imgLogin.svg";
-import muniquilmanaescudo from "../assets/img/muniquilmanaescudo.png";
+import imgLogin from "../../assets/img/imgLogin.svg";
+import muniquilmanaescudo from "../../assets/img/muniquilmanaescudo.png";
 
 const Login = () => {
   return (
@@ -17,41 +17,41 @@ const Login = () => {
       </div>
       <div className="grid grid-cols-5 gap-2 h-full">
         <div className="col-span-2">
-          <form class="bg-white shadow-md rounded mx-12 mt-20 px-10 pt-6 pb-8 mb-4">
+          <form className="bg-white shadow-md rounded mx-12 mt-20 px-10 pt-6 pb-8 mb-4">
             <h1 className="font-semibold text-5xl text-center p-6 text-green-500">
               Iniciar Sesión
             </h1>
-            <div class="mb-4">
+            <div className="mb-4">
               <label
-                class="block text-gray-700 text-sm font-bold mb-2"
-                for="usuario"
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="usuario"
               >
                 Usuario
               </label>
               <input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="usuario"
                 type="text"
                 placeholder="Usuario"
               />
             </div>
-            <div class="mb-6">
+            <div className="mb-6">
               <label
-                class="block text-gray-700 text-sm font-bold mb-2"
-                for="contraseña"
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="contraseña"
               >
                 Contraseña
               </label>
               <input
-                class=" shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                className=" shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                 id="password"
                 type="password"
                 placeholder="******************"
               />
             </div>
-            <div class="flex items-center justify-between">
+            <div className="flex items-center justify-between">
               <button
-                class="shadow-md w-full h-12 bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline -mb-16"
+                className="shadow-md w-full h-12 bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline -mb-16"
                 type="button"
               >
                 Iniciar Sesión
