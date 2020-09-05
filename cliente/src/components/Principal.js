@@ -22,7 +22,7 @@ const Principal = () => {
           <span className="font-hairline text-4xl">Iniciar Tramite</span>
         </Link>
         <Link
-          to="/"
+          to="/recibir-tramites"
           class="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
         >
           <img className="mr-4" src={recibirTramite} width="23%" alt="" />
