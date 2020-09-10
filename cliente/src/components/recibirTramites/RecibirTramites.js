@@ -10,369 +10,113 @@ const RecibirTramites = () => {
         Recibir Trámites
       </h1>
 
-      <div STYLE=" height: 400px; width: 100%; font-size: 14px; overflow: auto;">
-        <table class="table-auto bg-white shadow mx-5 my-0 rounded ">
+      <div className="estilos-tabla">
+        <table className="table-auto bg-white shadow mx-5 my-0 rounded ">
           <thead>
             <tr className="bg-gray-300">
-              <th class="px-4 py-2">Cod. Trámite</th>
-              <th class="px-4 py-2">Cod. Expediente</th>
-              <th class="px-4 py-2">asunto</th>
-              <th class="px-4 py-2">Area procedencia</th>
-              <th class="px-4 py-2">Fecha llegada</th>
-              <th class="px-4 py-2">Estado</th>
-              <th class="px-4 py-2">Elegir</th>
+              <th className="px-4 py-2">Cod. Trámite</th>
+              <th className="px-4 py-2">Cod. Expediente</th>
+              <th className="px-4 py-2">asunto</th>
+              <th className="px-4 py-2">Area procedencia</th>
+              <th className="px-4 py-2">Fecha llegada</th>
+              <th className="px-4 py-2">Estado</th>
+              <th className="px-4 py-2">Elegir</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">mdq20200926001</td>
+              <td className="border px-4 py-2">Exp-2020_15-Res15</td>
+              <td className="border px-4 py-2">
                 Sol. Licencia de funcionamiento para local agricola en el
                 distrito de Quilmana
               </td>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">
                 Gerencia de Administracion y finanzas
               </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
+              <td className="border px-4 py-2">15/07/2020</td>
+              <td className="border px-4 py-2">Pendiente</td>
+              <td className="border px-4 py-2 ">
                 <input type="checkbox" className="ml-3" />
               </td>
             </tr>
             <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">mdq20200926001</td>
+              <td className="border px-4 py-2">Exp-2020_15-Res15</td>
+              <td className="border px-4 py-2">
                 Sol. Licencia de funcionamiento para local agricola en el
                 distrito de Quilmana
               </td>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">
                 Gerencia de Administracion y finanzas
               </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
+              <td className="border px-4 py-2">15/07/2020</td>
+              <td className="border px-4 py-2">Pendiente</td>
+              <td className="border px-4 py-2 ">
                 <input type="checkbox" className="ml-3" />
               </td>
             </tr>
             <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">mdq20200926001</td>
+              <td className="border px-4 py-2">Exp-2020_15-Res15</td>
+              <td className="border px-4 py-2">
                 Sol. Licencia de funcionamiento para local agricola en el
                 distrito de Quilmana
               </td>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">
                 Gerencia de Administracion y finanzas
               </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
+              <td className="border px-4 py-2">15/07/2020</td>
+              <td className="border px-4 py-2">Pendiente</td>
+              <td className="border px-4 py-2 ">
                 <input type="checkbox" className="ml-3" />
               </td>
             </tr>
             <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">mdq20200926001</td>
+              <td className="border px-4 py-2">Exp-2020_15-Res15</td>
+              <td className="border px-4 py-2">
                 Sol. Licencia de funcionamiento para local agricola en el
                 distrito de Quilmana
               </td>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">
                 Gerencia de Administracion y finanzas
               </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
+              <td className="border px-4 py-2">15/07/2020</td>
+              <td className="border px-4 py-2">Pendiente</td>
+              <td className="border px-4 py-2 ">
                 <input type="checkbox" className="ml-3" />
               </td>
             </tr>
             <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">mdq20200926001</td>
+              <td className="border px-4 py-2">Exp-2020_15-Res15</td>
+              <td className="border px-4 py-2">
                 Sol. Licencia de funcionamiento para local agricola en el
                 distrito de Quilmana
               </td>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">
                 Gerencia de Administracion y finanzas
               </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
+              <td className="border px-4 py-2">15/07/2020</td>
+              <td className="border px-4 py-2">Pendiente</td>
+              <td className="border px-4 py-2 ">
                 <input type="checkbox" className="ml-3" />
               </td>
             </tr>
             <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">mdq20200926001</td>
+              <td className="border px-4 py-2">Exp-2020_15-Res15</td>
+              <td className="border px-4 py-2">
                 Sol. Licencia de funcionamiento para local agricola en el
                 distrito de Quilmana
               </td>
-              <td class="border px-4 py-2">
+              <td className="border px-4 py-2">
                 Gerencia de Administracion y finanzas
               </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
-                <input type="checkbox" className="ml-3" />
-              </td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
-                Sol. Licencia de funcionamiento para local agricola en el
-                distrito de Quilmana
-              </td>
-              <td class="border px-4 py-2">
-                Gerencia de Administracion y finanzas
-              </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
-                <input type="checkbox" className="ml-3" />
-              </td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
-                Sol. Licencia de funcionamiento para local agricola en el
-                distrito de Quilmana
-              </td>
-              <td class="border px-4 py-2">
-                Gerencia de Administracion y finanzas
-              </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
-                <input type="checkbox" className="ml-3" />
-              </td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
-                Sol. Licencia de funcionamiento para local agricola en el
-                distrito de Quilmana
-              </td>
-              <td class="border px-4 py-2">
-                Gerencia de Administracion y finanzas
-              </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
-                <input type="checkbox" className="ml-3" />
-              </td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
-                Sol. Licencia de funcionamiento para local agricola en el
-                distrito de Quilmana
-              </td>
-              <td class="border px-4 py-2">
-                Gerencia de Administracion y finanzas
-              </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
-                <input type="checkbox" className="ml-3" />
-              </td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
-                Sol. Licencia de funcionamiento para local agricola en el
-                distrito de Quilmana
-              </td>
-              <td class="border px-4 py-2">
-                Gerencia de Administracion y finanzas
-              </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
-                <input type="checkbox" className="ml-3" />
-              </td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
-                Sol. Licencia de funcionamiento para local agricola en el
-                distrito de Quilmana
-              </td>
-              <td class="border px-4 py-2">
-                Gerencia de Administracion y finanzas
-              </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
-                <input type="checkbox" className="ml-3" />
-              </td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
-                Sol. Licencia de funcionamiento para local agricola en el
-                distrito de Quilmana
-              </td>
-              <td class="border px-4 py-2">
-                Gerencia de Administracion y finanzas
-              </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
-                <input type="checkbox" className="ml-3" />
-              </td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
-                Sol. Licencia de funcionamiento para local agricola en el
-                distrito de Quilmana
-              </td>
-              <td class="border px-4 py-2">
-                Gerencia de Administracion y finanzas
-              </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
-                <input type="checkbox" className="ml-3" />
-              </td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
-                Sol. Licencia de funcionamiento para local agricola en el
-                distrito de Quilmana
-              </td>
-              <td class="border px-4 py-2">
-                Gerencia de Administracion y finanzas
-              </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
-                <input type="checkbox" className="ml-3" />
-              </td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
-                Sol. Licencia de funcionamiento para local agricola en el
-                distrito de Quilmana
-              </td>
-              <td class="border px-4 py-2">
-                Gerencia de Administracion y finanzas
-              </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
-                <input type="checkbox" className="ml-3" />
-              </td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
-                Sol. Licencia de funcionamiento para local agricola en el
-                distrito de Quilmana
-              </td>
-              <td class="border px-4 py-2">
-                Gerencia de Administracion y finanzas
-              </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
-                <input type="checkbox" className="ml-3" />
-              </td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
-                Sol. Licencia de funcionamiento para local agricola en el
-                distrito de Quilmana
-              </td>
-              <td class="border px-4 py-2">
-                Gerencia de Administracion y finanzas
-              </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
-                <input type="checkbox" className="ml-3" />
-              </td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
-                Sol. Licencia de funcionamiento para local agricola en el
-                distrito de Quilmana
-              </td>
-              <td class="border px-4 py-2">
-                Gerencia de Administracion y finanzas
-              </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
-                <input type="checkbox" className="ml-3" />
-              </td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
-                Sol. Licencia de funcionamiento para local agricola en el
-                distrito de Quilmana
-              </td>
-              <td class="border px-4 py-2">
-                Gerencia de Administracion y finanzas
-              </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
-                <input type="checkbox" className="ml-3" />
-              </td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
-                Sol. Licencia de funcionamiento para local agricola en el
-                distrito de Quilmana
-              </td>
-              <td class="border px-4 py-2">
-                Gerencia de Administracion y finanzas
-              </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
-                <input type="checkbox" className="ml-3" />
-              </td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">mdq20200926001</td>
-              <td class="border px-4 py-2">Exp-2020_15-Res15</td>
-              <td class="border px-4 py-2">
-                Sol. Licencia de funcionamiento para local agricola en el
-                distrito de Quilmana
-              </td>
-              <td class="border px-4 py-2">
-                Gerencia de Administracion y finanzas
-              </td>
-              <td class="border px-4 py-2">15/07/2020</td>
-              <td class="border px-4 py-2">Pendiente</td>
-              <td class="border px-4 py-2 ">
+              <td className="border px-4 py-2">15/07/2020</td>
+              <td className="border px-4 py-2">Pendiente</td>
+              <td className="border px-4 py-2 ">
                 <input type="checkbox" className="ml-3" />
               </td>
             </tr>

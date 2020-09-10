@@ -5,3 +5,10 @@ body {
 .fondo-gris {
   background-color: rgb(221, 221, 221);
 }
+
+.estilos-tabla {
+  height: 400px;
+  width: 100%;
+  font-size: 14px;
+  overflow: auto;
+}
