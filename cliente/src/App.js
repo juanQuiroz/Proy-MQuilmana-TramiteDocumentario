@@ -8,6 +8,11 @@ import IniciarTramite from "./components/iniciarTramite/IniciarTramite";
 import RecibirTramites from "./components/recibirTramites/RecibirTramites";
 
 function App() {
+  // setInterval(() => {
+  //   const hora2 = new Date();
+  //   console.log(hora2);
+  //   console.log(Date.parse(hora2));
+  // }, 100);
   return (
     <Router>
       <Switch>
