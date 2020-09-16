@@ -50,3 +50,25 @@ exports.crearTramite = async (req, res) => {
   //     res.status(500).send("Error al realizar primera derivacion");
   //   }
 };
+
+// Obtiene tramite por busqueda por codigo de tramite o de expediente
+exports.obtenerTramite = async (req, res) => {
+  try {
+    // Extraer codigo del req
+
+    const { codTramite, codExpediente } = req.body;
+
+    const tramite = await Tramites.findOne({
+      $or: [{ codTramite }, { codExpediente }],
+    });
+
+    if (!tramite) {
+      return res.status(404).json({ msg: "Tramite no encotrado" });
+    }
+
+    res.json({ tramite });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "Error al conectar con la base de datos" });
+  }
+};

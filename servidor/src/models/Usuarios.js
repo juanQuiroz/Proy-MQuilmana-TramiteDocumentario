@@ -22,6 +22,7 @@ const UsuariosSchema = mongoose.Schema({
   adminRol: {
     type: Boolean,
     required: true,
+    default: false,
   },
 });
 

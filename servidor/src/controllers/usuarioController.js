@@ -13,7 +13,7 @@ exports.crearUsuario = async (req, res) => {
   }
 
   // Extraer usuario y contraseña
-  const { nombreUsuario, contraseña } = req.body;
+  const { nombreUsuario, nombreArea, contraseña } = req.body;
 
   try {
     // Validar que sea unico usuario registrado
@@ -24,7 +24,11 @@ exports.crearUsuario = async (req, res) => {
     }
 
     // Si el usuario no existe, crea un nuevo usuario
-    usuario = new Usuarios(req.body);
+    usuario = new Usuarios({
+      nombreUsuario: nombreUsuario.toUpperCase(),
+      nombreArea: nombreArea.toUpperCase(),
+      contraseña,
+    });
 
     // Hashear la contraseña
     const salt = await bcrypt.genSalt(10);

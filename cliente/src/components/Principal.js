@@ -50,7 +50,7 @@ const Principal = () => {
           <span className="font-hairline text-4xl">Administrar Usuarios</span>
         </Link>
         <Link
-          to="/"
+          to="/administrar-usuarios"
           className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
         >
           <img className="mr-4" src={config} width="23%" alt="" />
