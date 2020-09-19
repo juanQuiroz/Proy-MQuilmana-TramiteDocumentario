@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+
+import authContext from "../../context/autenticacion/authContext";
 
 const FormIniciarTramite = () => {
+  // Context de autenticacion
+  const AuthContext = useContext(authContext);
+  const { cargando, listarUsuarios, listaUsuarios } = AuthContext;
+  useEffect(() => {
+    listarUsuarios();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <form className="bg-white shadow-md rounded mx-10 mt-10 px-6 pt-3 pb-8 mb-8">
       <h1 className="font-light text-4xl text-left mb-4 text-green-500">
@@ -72,20 +81,30 @@ const FormIniciarTramite = () => {
           </div>
         </div>
 
-        <div class="inline-block relative">
+        <div class="mb-2 inline-block relative w-full">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="usuario"
           >
-            Área de Destino
+            Area / Gerencia / SubGerencia
           </label>
-          <select class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-            <option>-- Seleccione el área de destino --</option>
-            <option>CARTA</option>
-            <option>FUT</option>
-            <option>ETC ...</option>
+          <select
+            className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+            name="_id"
+          >
+            <option selected disabled>
+              -- Seleccione el area --
+            </option>
+
+            {cargando
+              ? null
+              : listaUsuarios.usuarios.map(usuario => (
+                  <option value={usuario._id} key={usuario._id}>
+                    {usuario.nombreArea}
+                  </option>
+                ))}
           </select>
-          <div class="pointer-events-none absolute -mt-6 right-0 flex items-center px-2 text-gray-700">
+          <div className="pointer-events-none absolute -mt-6 right-0 flex items-center px-2 text-gray-700">
             <svg
               class="fill-current h-4 w-4"
               xmlns="http://www.w3.org/2000/svg"

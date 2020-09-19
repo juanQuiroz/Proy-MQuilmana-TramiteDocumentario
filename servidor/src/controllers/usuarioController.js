@@ -60,3 +60,44 @@ exports.crearUsuario = async (req, res) => {
     res.status(400).send("Error en la creacion de usuario nuevo");
   }
 };
+
+exports.obtenerUsuarios = async (req, res) => {
+  const usuarios = await Usuarios.find();
+  res.json({ usuarios });
+};
+
+// ACtualizar contraseña de usuarios
+exports.actualizarContraseña = async (req, res) => {
+  try {
+    const { _id, contraseña } = req.body;
+
+    // Si la tarea existe obviamente el proyecto tambien existe
+    let usuarioExiste = await Usuarios.findById(_id);
+    if (!usuarioExiste) {
+      return res.status(404).json({ msg: "No existe ese Usuario / Gerencia" });
+    }
+
+    // Hashear la contraseña
+    const salt = await bcrypt.genSalt(10);
+    // Reescribir la contraseña con el nuevo hash generado
+    nContraseña = await bcrypt.hash(contraseña, salt);
+
+    // crear un objeto con la nueva informacion
+    // const nuevaContraseña = {};
+
+    // nuevaContraseña.contraseña = nContraseña;
+
+    // Guardar la NuevaContraseña
+    usuarioExiste = await Usuarios.findByIdAndUpdate(
+      { _id },
+      { contraseña: nContraseña },
+      {
+        new: true,
+      },
+    );
+    res.json({ msg: "Contraseña actualizada correctamente", usuarioExiste });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Hubo un error");
+  }
+};

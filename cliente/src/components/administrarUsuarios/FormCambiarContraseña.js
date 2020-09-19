@@ -4,15 +4,20 @@ import { useState } from "react";
 
 import authContext from "../../context/autenticacion/authContext";
 
-const FormCrearUsuario = () => {
+const FormCambiarContraseña = () => {
   // Context de autenticacion
   const AuthContext = useContext(authContext);
-  const { msgNuevoUsuario, mensaje, registrarUsuario } = AuthContext;
+  const {
+    msgCambiarContra,
+    mensaje,
+    cargando,
+    listaUsuarios,
+    actualizarContraseña,
+  } = AuthContext;
 
   // State de los usuarios
   const [usuario, setUsuario] = useState({
-    nombreUsuario: "",
-    nombreArea: "",
+    _id: "",
     contraseña: "",
   });
 
@@ -30,11 +35,7 @@ const FormCrearUsuario = () => {
     e.preventDefault();
 
     // Validar campos
-    if (
-      usuario.nombreUsuario.trim() === "" ||
-      usuario.nombreArea.trim() === "" ||
-      usuario.contraseña.trim() === ""
-    ) {
+    if (usuario._id.trim() === "" || usuario.contraseña.trim() === "") {
       setError(true);
       // Quitar mensaje de error
       setTimeout(() => {
@@ -43,14 +44,25 @@ const FormCrearUsuario = () => {
       return;
     }
 
-    const { nombreUsuario, nombreArea, contraseña } = usuario;
+    const { _id, contraseña } = usuario;
+
     // Pasar al action de registrarUsuario
-    registrarUsuario({
-      nombreUsuario,
-      nombreArea,
+    actualizarContraseña({
+      _id,
       contraseña,
     });
+
+    // Reiniciar State
+    setUsuario({
+      _id: "",
+      contraseña: "",
+    });
   };
+
+  // useEffect(() => {
+  //   listarUsuarios();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     <form
@@ -62,53 +74,55 @@ const FormCrearUsuario = () => {
           Todos los campos son obligatorios
         </div>
       ) : null}
-      {msgNuevoUsuario ? (
+      {msgCambiarContra ? (
         <div className={`${mensaje.classname}`}>{mensaje.msg}</div>
       ) : null}
-      <h1 className="font-light text-4xl text-left mb-4 text-green-500">
-        Crear Usuario / Area
+
+      <h1 className="font-light text-4xl text-left text-green-500 mb-12">
+        Cambiar Contraseña
       </h1>
 
-      <div className="mb-2">
+      <div class="mb-2 inline-block relative w-full">
         <label
           className="block text-gray-700 text-sm font-bold mb-2"
           htmlFor="usuario"
         >
-          Nombre de usuario:
+          Area / Gerencia / SubGerencia
         </label>
-        <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="usuario"
-          type="text"
-          placeholder="Nombre de usuario"
-          name="nombreUsuario"
-          onChange={onChangeInput}
-        />
+        <select
+          className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+          name="_id"
+          onClick={onChangeInput}
+        >
+          <option selected disabled>
+            -- Seleccione el area --
+          </option>
+
+          {cargando
+            ? null
+            : listaUsuarios.usuarios.map(usuario => (
+                <option value={usuario._id} key={usuario._id}>
+                  {usuario.nombreArea}
+                </option>
+              ))}
+        </select>
+        <div className="pointer-events-none absolute -mt-6 right-0 flex items-center px-2 text-gray-700">
+          <svg
+            class="fill-current h-4 w-4"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+          >
+            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+          </svg>
+        </div>
       </div>
 
-      <div className="mb-2">
+      <div className="mb-4">
         <label
           className="block text-gray-700 text-sm font-bold mb-2"
           htmlFor="usuario"
         >
-          Nombre del Area / Gerencia / Subgerencia:
-        </label>
-        <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="usuario"
-          type="text"
-          placeholder="Nombre del Area / Gerencia / Subgerencia"
-          name="nombreArea"
-          onChange={onChangeInput}
-        />
-      </div>
-
-      <div className="mb-2">
-        <label
-          className="block text-gray-700 text-sm font-bold mb-2"
-          htmlFor="usuario"
-        >
-          Contraseña:
+          Nueva contraseña:
         </label>
         <input
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -117,19 +131,20 @@ const FormCrearUsuario = () => {
           placeholder="Contraseña"
           name="contraseña"
           onChange={onChangeInput}
+          value={usuario.contraseña}
         />
       </div>
 
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center mt-12">
         <button
           className="shadow-md h-12 w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-32 mt-6 rounded-full focus:outline-none focus:shadow-outline"
           type="submit"
         >
-          Crear Usuario
+          Cambiar contraseña
         </button>
       </div>
     </form>
   );
 };
 
-export default FormCrearUsuario;
+export default FormCambiarContraseña;

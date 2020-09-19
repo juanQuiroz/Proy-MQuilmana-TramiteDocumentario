@@ -28,27 +28,32 @@ exports.crearTramite = async (req, res) => {
     const tramite = new Tramites(req.body);
     await tramite.save();
     const codTramite = tramite.codTramite;
-    res.json({ codTramite });
+
+    // Almacenar datos de tramite para usar en la primera deriacion inmediata
+    const dataTramite = tramite;
+
+    // Llenar collection de "Derivaciones" (primera vez)
+
+    const { _id, areaInicio, areaDestino } = dataTramite;
+    try {
+      const derivacion = new Derivaciones({
+        tramite: _id,
+        areaOrigen: areaInicio,
+        areaDestino,
+        fechaDerivacion: Date.now(),
+        fechaAceptado: null,
+        fechaRechazado: null,
+      });
+      await derivacion.save();
+      res.json({ codTramite, tramite, derivacion });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Error al realizar primera derivacion");
+    }
   } catch (error) {
     console.log(error);
     res.status(500).send("Error al crear nuevo tramite");
   }
-  // Llenar collection de "Derivaciones" (primera vez)
-  //   try {
-  //     const derivacion = new Derivaciones({
-  //       tramite,
-  //       areaOrigen,
-  //       areaDestino,
-  //       fechaDerivacion,
-  //       fechaAceptado,
-  //       fechaRechazado,
-  //     });
-  //     await tramite.save();
-  //     res.json({ codTramite });
-  //   } catch (error) {
-  //     console.log(error);
-  //     res.status(500).send("Error al realizar primera derivacion");
-  //   }
 };
 
 // Obtiene tramite por busqueda por codigo de tramite o de expediente

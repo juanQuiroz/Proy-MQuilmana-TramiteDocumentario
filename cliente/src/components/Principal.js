@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import Navbar from "./layouts/Navbar";
@@ -9,7 +9,23 @@ import config from "../assets/img/config.svg";
 import gestiTramite from "../assets/img/gestiTramite.svg";
 import recibirTramite from "../assets/img/recibirTramite.svg";
 
+import authContext from "../context/autenticacion/authContext";
+
 const Principal = () => {
+  // Context de autenticacion
+  const AuthContext = useContext(authContext);
+  const { listarUsuarios, cerrarSesion } = AuthContext;
+
+  useEffect(() => {
+    listarUsuarios();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Onclick cerrar sesion
+  const onClickCerrarSesion = () => {
+    cerrarSesion();
+  };
+
   return (
     <Fragment>
       <Navbar />

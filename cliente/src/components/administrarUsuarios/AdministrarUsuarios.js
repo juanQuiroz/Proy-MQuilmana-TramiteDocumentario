@@ -1,7 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 
 import NavBar from "../layouts/Navbar";
 import FormCrearUsuario from "./FormCrearUsuario";
+import FormCambiarContraseña from "./FormCambiarContraseña";
 
 const AdministrarUsuarios = () => {
   return (
@@ -9,6 +10,7 @@ const AdministrarUsuarios = () => {
       <NavBar />
       <div className="grid grid-cols-2">
         <FormCrearUsuario />
+        <FormCambiarContraseña />
       </div>
     </Fragment>
   );

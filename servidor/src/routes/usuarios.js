@@ -20,4 +20,10 @@ router.post(
   usuarioController.crearUsuario,
 );
 
+// Obtener usuarios
+router.get("/", usuarioController.obtenerUsuarios);
+
+// AactualizarContraseña
+router.post("/actualizarpass", usuarioController.actualizarContraseña);
+
 module.exports = router;

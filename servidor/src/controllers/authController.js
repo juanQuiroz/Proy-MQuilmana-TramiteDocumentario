@@ -53,9 +53,10 @@ exports.autenticarUsuario = async (req, res) => {
 exports.usuarioAutenticado = async (req, res) => {
   try {
     // retornar los datos del usuario sin la contraseña
-    const usuario = await (await Usuarios.findById(req.usuario.id)).isSelected(
+    const usuario = await Usuarios.findById(req.usuario.id).select(
       "-contraseña",
     );
+    console.log(req.body);
     res.json({ usuario });
   } catch (error) {
     console.log(error.response);
