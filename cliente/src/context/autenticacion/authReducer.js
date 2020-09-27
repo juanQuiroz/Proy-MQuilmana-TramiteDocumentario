@@ -9,10 +9,18 @@ import {
   ACTCONTRA_EXITOSO,
   ACTCONTRA_ERROR,
   OCULTAR_MENSAJE,
+  OBTENER_USUARIO_ERROR,
+  RECARGANDO_PAGINA,
 } from "../../types";
 
 export default (state, action) => {
   switch (action.type) {
+    case RECARGANDO_PAGINA:
+      return {
+        ...state,
+        cargando: false,
+      };
+
     case LOGIN_EXITOSO:
       // Guardar token en localstorage
       localStorage.setItem("token", action.payload.token);
@@ -33,7 +41,16 @@ export default (state, action) => {
         cargando: false,
       };
     case LOGIN_ERROR:
-    case CERRAR_SESION:
+      return {
+        ...state,
+        token: null,
+        usuario: null,
+        autenticado: false,
+        mensaje: action.payload,
+        msgErrorLogin: true,
+        cargando: false,
+      };
+    case OBTENER_USUARIO_ERROR:
       return {
         ...state,
         token: null,
@@ -42,13 +59,24 @@ export default (state, action) => {
         mensaje: action.payload,
         cargando: false,
       };
+    case CERRAR_SESION:
+      localStorage.removeItem("token");
+
+      return {
+        ...state,
+        token: null,
+        usuario: null,
+        autenticado: false,
+        mensaje: action.payload,
+        msgErrorLogin: false,
+        cargando: false,
+      };
     case REGISTRO_ERROR:
       localStorage.removeItem("token");
       return {
         ...state,
         token: null,
         usuario: null,
-        autenticado: false,
         mensaje: action.payload,
         msgNuevoUsuario: true,
         cargando: false,
@@ -59,6 +87,7 @@ export default (state, action) => {
         ...state,
         listaUsuarios: action.payload,
         cargando: false,
+        autenticado: true,
       };
 
     case ACTCONTRA_EXITOSO:
@@ -80,6 +109,7 @@ export default (state, action) => {
         ...state,
         msgNuevoUsuario: null,
         msgCambiarContra: null,
+        msgErrorLogin: null,
       };
 
     case OBTENER_USUARIO:

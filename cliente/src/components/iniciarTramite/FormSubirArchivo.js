@@ -10,6 +10,9 @@ const FormSubirArchivo = () => {
     archivo: "",
   });
 
+  const [error, setError] = useState(false);
+  const [resServer, setResSever] = useState(false);
+
   const agregarAlState = e => {
     guardarDatos({
       ...datos,
@@ -24,6 +27,10 @@ const FormSubirArchivo = () => {
   const onSubmit = async e => {
     e.preventDefault();
 
+    if (datos.codtramite.trim() === "") {
+      setError(true);
+    }
+
     try {
       const { archivo } = imgState;
       const formData = new FormData();
@@ -32,17 +39,21 @@ const FormSubirArchivo = () => {
 
       const res = await axios.post(
         "https://www.backendquilmana.cyou/api/subir",
-        // "http://localhost:4000/api/subir",
+
         formData,
       );
 
       //console.log(res);
       if (res.data.estado === true) {
-        console.log("Tramite realizado exitosamente");
+        setResSever(true);
       }
     } catch (e) {
       console.log(e);
     }
+
+    setTimeout(() => {
+      setError(false);
+    }, 4000);
   };
 
   return (
@@ -54,6 +65,17 @@ const FormSubirArchivo = () => {
       <h1 className="font-light text-4xl text-left mb-4 text-green-500">
         Subir Archivo
       </h1>
+
+      {error ? (
+        <div className="bg-red-400 p-4 rounded font-bold shadow-md text-center">
+          ¡ Es Necesario escribir el codigo de tramite !
+        </div>
+      ) : null}
+      {resServer ? (
+        <div className="bg-green-400 p-4 rounded font-bold shadow-md text-center">
+          Archivo Subido Exitosamente
+        </div>
+      ) : null}
 
       <div className="grid grid-cols-2 gap-3">
         <div className="mb-0">

@@ -16,6 +16,8 @@ import {
   ACTCONTRA_EXITOSO,
   ACTCONTRA_ERROR,
   OCULTAR_MENSAJE,
+  OBTENER_USUARIO_ERROR,
+  RECARGANDO_PAGINA,
 } from "../../types";
 
 const AuthState = props => {
@@ -27,18 +29,29 @@ const AuthState = props => {
     mensaje: {},
     msgNuevoUsuario: null,
     msgCambiarContra: null,
+    msgErrorLogin: null,
     listaUsuarios: {},
     cargando: true,
+    cargando2: true,
   };
 
   // Reducer
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   // FUNCIONES
+
+  // Recargando pagina
+  const recargarPagina = () => {
+    dispatch({
+      type: RECARGANDO_PAGINA,
+    });
+  };
+
   // // Registra un nuevo usuario
   const registrarUsuario = async datos => {
     try {
-      await clienteAxios.post("/api/usuarios", datos);
+      var respuesta = await clienteAxios.post("/api/usuarios", datos);
+      console.log(respuesta);
       const alerta = {
         msg: "Usuario creado correctamente",
         classname: "bg-green-400 p-4 rounded font-bold shadow-md text-center",
@@ -54,8 +67,9 @@ const AuthState = props => {
         });
       }, 4000);
     } catch (error) {
+      console.log(error.response);
       const alerta = {
-        msg: "Error al crear usuario",
+        msg: error.response.data.msg,
         classname: "bg-red-400 p-4 rounded font-bold shadow-md text-center",
       };
 
@@ -127,7 +141,6 @@ const AuthState = props => {
   // Retorna el usuario autenticado
   const ususarioAutenticado = async () => {
     const token = localStorage.getItem("token");
-    console.log(token);
 
     if (token) {
       // TODO: funcion para enviar el token por headers
@@ -143,7 +156,7 @@ const AuthState = props => {
       });
     } catch (error) {
       dispatch({
-        type: LOGIN_ERROR,
+        type: OBTENER_USUARIO_ERROR,
       });
     }
   };
@@ -163,7 +176,7 @@ const AuthState = props => {
       console.log(error.response.data.msg);
       const alerta = {
         msg: error.response.data.msg,
-        categoria: "alerta-error",
+        classname: "bg-red-400 p-4 rounded font-bold shadow-md text-center",
       };
       dispatch({
         type: LOGIN_ERROR,
@@ -188,14 +201,17 @@ const AuthState = props => {
         mensaje: state.mensaje,
         msgNuevoUsuario: state.msgNuevoUsuario,
         msgCambiarContra: state.msgCambiarContra,
+        msgErrorLogin: state.msgErrorLogin,
         autenticado: state.autenticado,
         usuario: state.usuario,
+        cargando2: state.cargando2,
         registrarUsuario,
         listarUsuarios,
         actualizarContraseña,
         ususarioAutenticado,
         iniciarSesion,
         cerrarSesion,
+        recargarPagina,
       }}
     >
       {props.children}

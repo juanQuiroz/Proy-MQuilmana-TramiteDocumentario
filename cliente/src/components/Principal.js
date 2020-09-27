@@ -14,17 +14,12 @@ import authContext from "../context/autenticacion/authContext";
 const Principal = () => {
   // Context de autenticacion
   const AuthContext = useContext(authContext);
-  const { listarUsuarios, cerrarSesion } = AuthContext;
+  const { listarUsuarios } = AuthContext;
 
   useEffect(() => {
     listarUsuarios();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // Onclick cerrar sesion
-  const onClickCerrarSesion = () => {
-    cerrarSesion();
-  };
 
   return (
     <Fragment>
@@ -35,39 +30,39 @@ const Principal = () => {
           className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
         >
           <img className="mr-4" src={iniciarTramite} width="23%" alt="" />
-          <span className="font-hairline text-4xl">Iniciar Tramite</span>
+          <span className="font-hairline text-4xl">Iniciar Trámite</span>
         </Link>
         <Link
           to="/recibir-tramites"
           className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
         >
           <img className="mr-4" src={recibirTramite} width="23%" alt="" />
-          <span className="font-hairline text-4xl">Recibir Tramite</span>
+          <span className="font-hairline text-4xl">Recibir Trámite</span>
         </Link>
         <Link
-          to="/"
-          className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
-        >
-          <img className="mr-4" src={gestiTramite} width="23%" alt="" />
-          <span className="font-hairline text-4xl">Gestionar Tramite</span>
-        </Link>
-        <Link
-          to="/"
+          to="/Buscar-tramite"
           className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
         >
           <img className="mr-4" src={BuscarTramite} width="23%" alt="" />
-          <span className="font-hairline text-4xl">Buscar Tramite</span>
+          <span className="font-hairline text-4xl">Buscar Trámite</span>
         </Link>
         <Link
-          to="/"
+          to="/derivar-tramites"
           className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
         >
           <img className="mr-4" src={iniciarTramite} width="23%" alt="" />
-          <span className="font-hairline text-4xl">Administrar Usuarios</span>
+          <span className="font-hairline text-4xl">Derivar Trámites</span>
+        </Link>{" "}
+        <Link
+          to="/gestionarTramites"
+          className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
+        >
+          <img className="mr-4" src={gestiTramite} width="23%" alt="" />
+          <span className="font-hairline text-4xl">Gestionar Trámite</span>
         </Link>
         <Link
           to="/administrar-usuarios"
-          className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
+          className=" bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
         >
           <img className="mr-4" src={config} width="23%" alt="" />
           <span className="font-hairline text-4xl">Administrar usuarios</span>

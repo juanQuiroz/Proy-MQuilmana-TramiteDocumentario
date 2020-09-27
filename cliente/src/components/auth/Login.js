@@ -6,7 +6,7 @@ import authContext from "../../context/autenticacion/authContext";
 
 const Login = props => {
   const AuthContext = useContext(authContext);
-  const { mensaje, autenticado, iniciarSesion } = AuthContext;
+  const { msgErrorLogin, mensaje, autenticado, iniciarSesion } = AuthContext;
 
   // En caso de que el usuario se haya autenticado, registrado o que sea un registro duplicado
   useEffect(() => {
@@ -74,6 +74,9 @@ const Login = props => {
               <div className="bg-red-400 p-4 rounded font-bold shadow-md text-center">
                 Todos los campos son obligatorios
               </div>
+            ) : null}
+            {msgErrorLogin ? (
+              <div className={`${mensaje.classname}`}>{mensaje.msg}</div>
             ) : null}
             <h1 className="font-semibold text-5xl text-center p-6 text-green-500">
               Iniciar Sesión

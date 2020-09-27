@@ -5,13 +5,24 @@ const DerivacionesSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Tramites",
   },
+  // areaOrigenID: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "Usuarios",
+  // },
+  // areaDestinoID: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "Usuarios",
+  // },
+
   areaOrigen: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Usuarios",
+    type: String,
+    required: true,
+    trim: true,
   },
   areaDestino: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Usuarios",
+    type: String,
+    required: true,
+    trim: true,
   },
   fechaDerivacion: {
     type: Date,

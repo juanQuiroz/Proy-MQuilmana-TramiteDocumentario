@@ -4,7 +4,6 @@ const TramitesSchema = mongoose.Schema({
   codTramite: {
     type: String,
     required: true,
-    default: Date.parse(new Date()).toString(),
   },
   codExpediente: {
     type: String,
@@ -23,12 +22,14 @@ const TramitesSchema = mongoose.Schema({
     trim: true,
   },
   areaInicio: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Usuarios",
+    type: String,
+    required: true,
+    trim: true,
   },
   areaDestino: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Usuarios",
+    type: String,
+    required: true,
+    trim: true,
   },
   asunto: {
     type: String,
@@ -47,7 +48,6 @@ const TramitesSchema = mongoose.Schema({
   },
   materno: {
     type: String,
-    required: true,
     trim: true,
   },
   docIndentidad: {
@@ -72,6 +72,7 @@ const TramitesSchema = mongoose.Schema({
     trim: true,
   },
   fechaInicio: {
+    required: true,
     type: Date,
   },
   // estado true -> terminado, false: en proceso

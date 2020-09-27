@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 
@@ -8,12 +9,21 @@ const FormCambiarContraseña = () => {
   // Context de autenticacion
   const AuthContext = useContext(authContext);
   const {
+    autenticado,
     msgCambiarContra,
     mensaje,
     cargando,
+    listarUsuarios,
     listaUsuarios,
     actualizarContraseña,
   } = AuthContext;
+
+  useEffect(() => {
+    listarUsuarios();
+    console.log(autenticado);
+  }, []);
+
+  console.log(autenticado);
 
   // State de los usuarios
   const [usuario, setUsuario] = useState({
@@ -58,11 +68,6 @@ const FormCambiarContraseña = () => {
       contraseña: "",
     });
   };
-
-  // useEffect(() => {
-  //   listarUsuarios();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
 
   return (
     <form
