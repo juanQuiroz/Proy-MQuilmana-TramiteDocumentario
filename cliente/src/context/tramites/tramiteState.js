@@ -21,6 +21,8 @@ import {
   ERROR_LISTARTRAMITEACEPTADO,
   EXITO_DERIVARTRAMITES,
   ERROR_DERIVARTRAMITES,
+  EXITO_ELIMINAR,
+  ERROR_ELIMINAR,
 } from "../../types";
 
 const TramiteState = props => {
@@ -41,6 +43,8 @@ const TramiteState = props => {
     resAceptarTramites: null,
     msgDervarTramite: null,
     resDerivarTramites: null,
+    msgEliminarTramite: null,
+    resEliminarTramite: null,
   };
 
   // REDUCER
@@ -279,6 +283,41 @@ const TramiteState = props => {
       }, 4000);
     }
   };
+  const rechazarTramites = async idsTramites => {
+    try {
+      const res = await clienteAxios.post(
+        "/api/tramite/rechazarTramites",
+        idsTramites,
+      );
+      const alerta = {
+        res,
+        msg: "Tramites rechazados correctamente",
+        classname: "bg-green-400 p-4 rounded font-bold shadow-md text-center",
+      };
+      console.log(alerta);
+      dispatch({
+        type: EXITO_ACEPTARTRAMITES,
+        payload: alerta,
+      });
+    } catch (error) {
+      console.log("catch-listarTramite:", error.response);
+      const alerta = {
+        msg: error.response.data.msg,
+        classname: "bg-red-400 p-4 rounded font-bold shadow-md text-center",
+      };
+
+      dispatch({
+        type: ERROR_ACEPTARTRAMITES,
+        payload: alerta,
+      });
+      // Ocultar la alerta despues de 5 segundos
+      setTimeout(() => {
+        dispatch({
+          type: OCULTAR_MENSAJE,
+        });
+      }, 4000);
+    }
+  };
 
   const derivarTramites = async datos => {
     try {
@@ -312,6 +351,38 @@ const TramiteState = props => {
       }, 4000);
     }
   };
+  const eliminarTramite = async id => {
+    try {
+      const res = await clienteAxios.post("/api/tramite/eliminarTramite", id);
+      const alerta = {
+        res,
+        msg: "Tramite eliminado correctamente",
+        classname: "bg-green-400 p-4 rounded font-bold shadow-md text-center",
+      };
+
+      dispatch({
+        type: EXITO_ELIMINAR,
+        payload: alerta,
+      });
+    } catch (error) {
+      console.log("catch-listarTramite:", error.response);
+      const alerta = {
+        msg: "Error al eliminar el tramite",
+        classname: "bg-red-400 p-4 rounded font-bold shadow-md text-center",
+      };
+
+      dispatch({
+        type: ERROR_ELIMINAR,
+        payload: alerta,
+      });
+      // Ocultar la alerta despues de 5 segundos
+      setTimeout(() => {
+        dispatch({
+          type: OCULTAR_MENSAJE,
+        });
+      }, 4000);
+    }
+  };
 
   return (
     <tramiteContext.Provider
@@ -332,6 +403,8 @@ const TramiteState = props => {
         listaTramitesAceptados: state.listaTramitesAceptados,
         msgDervarTramite: state.msgDervarTramite,
         resDerivarTramites: state.resDerivarTramites,
+        msgEliminarTramite: state.msgEliminarTramite,
+        resEliminarTramite: state.resEliminarTramite,
         registrarTramite,
         BuscarTramite,
         listarTramites,
@@ -339,6 +412,8 @@ const TramiteState = props => {
         aceptarTramites,
         listartramitesAceptados,
         derivarTramites,
+        rechazarTramites,
+        eliminarTramite,
       }}
     >
       {props.children}

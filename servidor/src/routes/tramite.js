@@ -27,6 +27,9 @@ router.post(
 // Aceptar tramites
 router.post("/aceptarTramites", auth, tramiteController.aceptarTramites);
 
+// Rechazar tramites
+router.post("/rechazarTramites", auth, tramiteController.rechazarTramites);
+
 // listar tramites aceptados
 router.post(
   "/listarTramitesAceptados",
@@ -36,5 +39,8 @@ router.post(
 
 // Derivar tramites
 router.post("/derivarTramite", auth, tramiteController.derivarTramite);
+
+// Eliminar tramite por ID
+router.post("/eliminarTramite", auth, tramiteController.eliminarTramite);
 
 module.exports = router;

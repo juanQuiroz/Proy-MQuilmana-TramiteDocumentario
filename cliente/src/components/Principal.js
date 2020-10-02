@@ -14,12 +14,17 @@ import authContext from "../context/autenticacion/authContext";
 const Principal = () => {
   // Context de autenticacion
   const AuthContext = useContext(authContext);
-  const { listarUsuarios } = AuthContext;
+  const { listarUsuarios, ususarioAutenticado, usuario } = AuthContext;
 
   useEffect(() => {
     listarUsuarios();
+    ususarioAutenticado();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  if (usuario) {
+    console.log(usuario.adminRol);
+  }
 
   return (
     <Fragment>
@@ -54,20 +59,48 @@ const Principal = () => {
           <span className="font-hairline text-4xl">Buscar Trámite</span>
         </Link>
 
-        <Link
-          to="/gestionarTramites"
-          className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
-        >
-          <img className="mr-4" src={gestiTramite} width="23%" alt="" />
-          <span className="font-hairline text-4xl">Gestionar Trámite</span>
-        </Link>
-        <Link
-          to="/administrar-usuarios"
-          className=" bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
-        >
-          <img className="mr-4" src={config} width="23%" alt="" />
-          <span className="font-hairline text-4xl">Administrar usuarios</span>
-        </Link>
+        {usuario ? (
+          usuario.adminRol ? (
+            <Link
+              to="/gestionarTramites"
+              className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
+            >
+              <img className="mr-4" src={gestiTramite} width="23%" alt="" />
+              <span className="font-hairline text-4xl">Eliminar Trámites</span>
+            </Link>
+          ) : (
+            <Link
+              to="/principal"
+              className="opacity-50 bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
+            >
+              <img className="mr-4" src={gestiTramite} width="23%" alt="" />
+              <span className="font-hairline text-4xl">Eliminar Trámites</span>
+            </Link>
+          )
+        ) : null}
+        {usuario ? (
+          usuario.adminRol ? (
+            <Link
+              to="/administrar-usuarios"
+              className=" bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
+            >
+              <img className="mr-4" src={config} width="23%" alt="" />
+              <span className="font-hairline text-4xl">
+                Administrar usuarios
+              </span>
+            </Link>
+          ) : (
+            <Link
+              to="/principal"
+              className=" opacity-50 bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
+            >
+              <img className="mr-4" src={config} width="23%" alt="" />
+              <span className="font-hairline text-4xl ">
+                Administrar usuarios
+              </span>
+            </Link>
+          )
+        ) : null}
       </div>
     </Fragment>
   );

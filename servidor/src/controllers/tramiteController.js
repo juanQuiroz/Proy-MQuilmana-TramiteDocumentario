@@ -1,5 +1,6 @@
 const Tramites = require("../models/Tramites");
 const Derivaciones = require("../models/Derivaciones");
+const { findByIdAndDelete } = require("../models/Tramites");
 
 // Crear un nuevo tramite y hacer la primera derivacion
 exports.crearTramite = async (req, res) => {
@@ -152,7 +153,6 @@ exports.rechazarTramites = async (req, res) => {
   try {
     // Extraer del req
     const { ids } = req.body;
-    console.log(ids);
 
     if (!ids[0]) {
       return res.status(404).json({ msg: "No tiene derivaciones pendientes" });
@@ -166,8 +166,25 @@ exports.rechazarTramites = async (req, res) => {
         { fechaRechazado: Date.now() },
         { new: true },
       );
+
+      const derivacion = await Derivaciones.findById({ _id: id });
+
+      const derivacionRechazo = new Derivaciones({
+        tramite: derivacion.tramite,
+        areaOrigen: derivacion.areaDestino,
+        codTramite: derivacion.codTramite,
+        codExpediente: derivacion.codExpediente,
+        asunto: derivacion.asunto,
+        areaDestino: derivacion.areaOrigen,
+        descripcion: "Retorna al area por rechazo",
+        fechaDerivacion: Date.now(),
+        fechaAceptado: null,
+        fechaRechazado: null,
+      });
+
+      await derivacionRechazo.save();
     });
-    res.json({ msg: "Tramites aceptados correctamente" });
+    res.json({ msg: "Tramites rechazados correctamente" });
   } catch (error) {
     console.log(error);
     res.status(500).json({ msg: "Error al conectar con la base de datos" });
@@ -237,5 +254,19 @@ exports.derivarTramite = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send("Error al derivar el tramite");
+  }
+};
+
+// ELimnar tramite por ID
+exports.eliminarTramite = async (req, res) => {
+  try {
+    const { id } = req.body;
+    await Tramites.findByIdAndDelete({ _id: id });
+    await Derivaciones.findOneAndDelete({ tramite: id });
+
+    res.json({ msg: "Tramite Eliminado correctamente" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error al eliminar el tramite");
   }
 };

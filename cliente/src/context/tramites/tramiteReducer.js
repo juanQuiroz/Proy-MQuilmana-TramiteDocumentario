@@ -15,6 +15,8 @@ import {
   ERROR_LISTARTRAMITEACEPTADO,
   EXITO_DERIVARTRAMITES,
   ERROR_DERIVARTRAMITES,
+  EXITO_ELIMINAR,
+  ERROR_ELIMINAR,
 } from "../../types/index";
 
 export default (state, action) => {
@@ -101,7 +103,13 @@ export default (state, action) => {
         msgAceptarTramite: true,
         resAceptarTramites: action.payload,
       };
-
+    case EXITO_ELIMINAR:
+    case ERROR_ELIMINAR:
+      return {
+        ...state,
+        msgEliminarTramite: true,
+        resEliminarTramite: action.payload,
+      };
     case EXITO_DERIVARTRAMITES:
     case ERROR_DERIVARTRAMITES:
       return {

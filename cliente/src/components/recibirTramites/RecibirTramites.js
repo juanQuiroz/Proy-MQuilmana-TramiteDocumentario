@@ -17,6 +17,7 @@ const RecibirTramites = () => {
     msgAceptarTramite,
     resAceptarTramites,
     aceptarTramites,
+    rechazarTramites,
   } = TramiteContext;
   const AuthContext = useContext(authContext);
   const { usuario } = AuthContext;
@@ -43,6 +44,16 @@ const RecibirTramites = () => {
   const onclickButtonAceptar = e => {
     e.preventDefault();
     aceptarTramites({ ids });
+    setDerivacionesID({
+      ids: [],
+    });
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
+  };
+  const onclickButtonRechazar = e => {
+    e.preventDefault();
+    rechazarTramites({ ids });
     setDerivacionesID({
       ids: [],
     });
@@ -104,8 +115,6 @@ const RecibirTramites = () => {
                         name="idtramite"
                         onClick={e => {
                           setDerivacionesID({
-                            ...derivacionesID,
-
                             ids: [...derivacionesID.ids, e.target.value],
                           });
                         }}
@@ -133,6 +142,7 @@ const RecibirTramites = () => {
         <button
           className="mx-10 shadow-md h-12 w-1/3 bg-red-400 hover:bg-red-600 text-gray-900 font-bold py-2 px-32 mt-6 rounded-full focus:outline-none focus:shadow-outline"
           type="button"
+          onClick={onclickButtonRechazar}
         >
           rechazar trámites
         </button>
