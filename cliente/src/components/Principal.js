@@ -40,19 +40,20 @@ const Principal = () => {
           <span className="font-hairline text-4xl">Recibir Trámite</span>
         </Link>
         <Link
+          to="/derivar-tramites"
+          className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
+        >
+          <img className="mr-4" src={iniciarTramite} width="23%" alt="" />
+          <span className="font-hairline text-4xl">Derivar Trámites</span>
+        </Link>
+        <Link
           to="/Buscar-tramite"
           className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
         >
           <img className="mr-4" src={BuscarTramite} width="23%" alt="" />
           <span className="font-hairline text-4xl">Buscar Trámite</span>
         </Link>
-        <Link
-          to="/derivar-tramites"
-          className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
-        >
-          <img className="mr-4" src={iniciarTramite} width="23%" alt="" />
-          <span className="font-hairline text-4xl">Derivar Trámites</span>
-        </Link>{" "}
+
         <Link
           to="/gestionarTramites"
           className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"

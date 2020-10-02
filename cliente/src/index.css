@@ -11,4 +11,6 @@ body {
   width: 100%;
   font-size: 14px;
   overflow: auto;
+  text-align: center;
+  align-items: center;
 }

@@ -5,9 +5,6 @@ import tramiteContext from "../../context/tramites/tramiteContext";
 const ResultadoBusqueda = () => {
   const TramiteContext = useContext(tramiteContext);
   const { msgBuscarTramite, mensaje, tramite } = TramiteContext;
-  if (tramite) {
-    console.log(typeof tramite.tramite.fechaInicio);
-  }
 
   return (
     <div className="col-span-3 bg-gray-100 shadow w-full p-6">
@@ -94,6 +91,7 @@ const ResultadoBusqueda = () => {
               <tr className="bg-green-400 rounded-md">
                 <th className="px-4 py-2">Area de Origen</th>
                 <th className="px-4 py-2">Area de Destino</th>
+                <th className="px-4 py-2">Descripción</th>
                 <th className="px-4 py-2">Fecha de Derivación</th>
                 <th className="px-4 py-2">Fecha de Aceptación</th>
                 <th className="px-4 py-2">Fecha de Rechazo</th>
@@ -101,9 +99,14 @@ const ResultadoBusqueda = () => {
             </thead>
             <tbody>
               {tramite.derivaciones.map(derivacion => (
-                <tr key={derivacion.id}>
+                <tr key={derivacion._id}>
                   <td className="border px-4 py-2">{derivacion.areaOrigen}</td>
                   <td className="border px-4 py-2">{derivacion.areaDestino}</td>
+                  <td className="border px-4 py-2">
+                    {derivacion.descripcion
+                      ? derivacion.descripcion
+                      : "Noy hay descripción"}
+                  </td>
                   <td className="border px-4 py-2">
                     {derivacion.fechaDerivacion.slice(0, 10)}
                   </td>

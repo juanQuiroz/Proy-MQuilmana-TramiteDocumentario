@@ -48,6 +48,7 @@ const FormBuscarCodTra = () => {
             placeholder="Código de trámite"
             onChange={onChangeInput}
             name="codTramite"
+            value={codigo.codTramite}
           />
           <button className="shadow mx-2 w-20 h-10 bg-yellow-500 hover:bg-yellow-400 text-gray-800 font-bold py-1 px-3 rounded inline-flex items-center focus:shadow-outline">
             <img src={lupa} width="80%" />

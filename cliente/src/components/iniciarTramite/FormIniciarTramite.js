@@ -246,13 +246,13 @@ const FormIniciarTramite = () => {
               -- Seleccione el area --
             </option>
 
-            {cargando
-              ? null
-              : listaUsuarios.usuarios.map(usuario => (
+            {listaUsuarios
+              ? listaUsuarios.usuarios.map(usuario => (
                   <option value={usuario.nombreArea} key={usuario._id}>
                     {usuario.nombreArea}
                   </option>
-                ))}
+                ))
+              : null}
           </select>
           <div className="pointer-events-none absolute -mt-6 right-0 flex items-center px-2 text-gray-700">
             <svg

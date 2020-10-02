@@ -14,6 +14,10 @@ const DerivacionesSchema = mongoose.Schema({
   //   ref: "Usuarios",
   // },
 
+  codExpediente: { type: String, required: true, trim: true },
+  codTramite: { type: String, required: true, trim: true },
+  asunto: { type: String, required: true, trim: true },
+
   areaOrigen: {
     type: String,
     required: true,
@@ -24,6 +28,10 @@ const DerivacionesSchema = mongoose.Schema({
     required: true,
     trim: true,
   },
+  descripcion: {
+    type: String,
+    trim: true,
+  },
   fechaDerivacion: {
     type: Date,
   },
@@ -32,6 +40,10 @@ const DerivacionesSchema = mongoose.Schema({
   },
   fechaRechazado: {
     type: Date,
+  },
+  derivado: {
+    type: Boolean,
+    default: false,
   },
 });
 

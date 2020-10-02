@@ -53,7 +53,8 @@ const FormSubirArchivo = () => {
 
     setTimeout(() => {
       setError(false);
-    }, 4000);
+      setResSever(false);
+    }, 3000);
   };
 
   return (

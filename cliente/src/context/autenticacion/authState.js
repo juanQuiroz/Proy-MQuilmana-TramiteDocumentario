@@ -30,7 +30,7 @@ const AuthState = props => {
     msgNuevoUsuario: null,
     msgCambiarContra: null,
     msgErrorLogin: null,
-    listaUsuarios: {},
+    listaUsuarios: null,
     cargando: true,
     cargando2: true,
   };
@@ -41,11 +41,11 @@ const AuthState = props => {
   // FUNCIONES
 
   // Recargando pagina
-  const recargarPagina = () => {
-    dispatch({
-      type: RECARGANDO_PAGINA,
-    });
-  };
+  // const recargarPagina = () => {
+  //   dispatch({
+  //     type: RECARGANDO_PAGINA,
+  //   });
+  // };
 
   // // Registra un nuevo usuario
   const registrarUsuario = async datos => {
@@ -211,7 +211,7 @@ const AuthState = props => {
         ususarioAutenticado,
         iniciarSesion,
         cerrarSesion,
-        recargarPagina,
+        // recargarPagina,
       }}
     >
       {props.children}

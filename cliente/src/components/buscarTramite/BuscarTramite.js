@@ -1,12 +1,28 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import NavBar from "../layouts/Navbar";
 
 import FormBuscarCodExp from "./FormBuscarCodExp";
 import FormBuscarCodTra from "./FormBuscarCodTra";
 import ResultadoBusqueda from "./ResultadoBusqueda";
 import ListarTramites from "./ListarTramites";
+import ResultadoListarTramites from "./ResultadoListarTramites";
+
+import tramiteContext from "../../context/tramites/tramiteContext";
+import { useEffect } from "react";
 
 const BuscarTramite = () => {
+  const TramiteContext = useContext(tramiteContext);
+  const { listaTramites, tramite } = TramiteContext;
+
+  var componente;
+  useEffect(() => {
+    componente = <ResultadoBusqueda />;
+  }, [tramite]);
+
+  useEffect(() => {
+    componente = <ResultadoListarTramites />;
+  }, [listaTramites]);
+
   return (
     <Fragment>
       <NavBar />
@@ -19,7 +35,7 @@ const BuscarTramite = () => {
           <FormBuscarCodTra />
           <FormBuscarCodExp />
           <ListarTramites />
-          <ResultadoBusqueda />
+          {tramite ? <ResultadoBusqueda /> : <ResultadoListarTramites />}
         </div>
       </div>
     </Fragment>

@@ -1,8 +1,24 @@
 import React from "react";
+import { useContext } from "react";
+
+import tramiteContext from "../../context/tramites/tramiteContext";
 
 const ListarTramites = () => {
+  const TramiteContext = useContext(tramiteContext);
+  const { listaTramites, listarTramites } = TramiteContext;
+
+  const onsubmitForm = e => {
+    e.preventDefault();
+
+    listarTramites();
+  };
+
+  if (listaTramites) {
+    console.log(listaTramites);
+  }
+
   return (
-    <form>
+    <form onSubmit={onsubmitForm}>
       <div className="mb-2">
         <label
           className="block text-gray-700 text-sm font-bold "

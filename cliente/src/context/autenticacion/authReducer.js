@@ -15,14 +15,13 @@ import {
 
 export default (state, action) => {
   switch (action.type) {
-    case RECARGANDO_PAGINA:
-      return {
-        ...state,
-        cargando: false,
-      };
+    // case RECARGANDO_PAGINA:
+    //   return {
+    //     ...state,
+    //     cargando: false,
+    //   };
 
-    case LOGIN_EXITOSO:
-      // Guardar token en localstorage
+    case LOGIN_EXITOSO: // Guardar token en localstorage
       localStorage.setItem("token", action.payload.token);
       return {
         ...state,
@@ -31,8 +30,6 @@ export default (state, action) => {
         cargando: false,
       };
     case REGISTRO_EXITOSO:
-      // Guardar token en localstorage
-      localStorage.setItem("token", action.payload.token);
       return {
         ...state,
         autenticado: true,
