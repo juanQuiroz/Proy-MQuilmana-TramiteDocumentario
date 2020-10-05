@@ -45,6 +45,10 @@ const DerivacionesSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  finalizado: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 module.exports = mongoose.model("Derivaciones", DerivacionesSchema);

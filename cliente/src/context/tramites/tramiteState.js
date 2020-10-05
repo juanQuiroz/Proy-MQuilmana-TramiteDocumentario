@@ -23,6 +23,8 @@ import {
   ERROR_DERIVARTRAMITES,
   EXITO_ELIMINAR,
   ERROR_ELIMINAR,
+  EXITO_FINALIZAR,
+  ERROR_FINALIZAR,
 } from "../../types";
 
 const TramiteState = props => {
@@ -45,6 +47,8 @@ const TramiteState = props => {
     resDerivarTramites: null,
     msgEliminarTramite: null,
     resEliminarTramite: null,
+    msgFinalizarTramite: null,
+    resFinalizarTramite: null,
   };
 
   // REDUCER
@@ -383,6 +387,38 @@ const TramiteState = props => {
       }, 4000);
     }
   };
+  const finalizarTramite = async id => {
+    try {
+      const res = await clienteAxios.post("/api/tramite/finalizarTramite", id);
+      const alerta = {
+        res,
+        msg: "Tramite finalizado correctamente",
+        classname: "bg-green-400 p-4 rounded font-bold shadow-md text-center",
+      };
+
+      dispatch({
+        type: EXITO_FINALIZAR,
+        payload: alerta,
+      });
+    } catch (error) {
+      console.log("catch-listarTramite:", error.response);
+      const alerta = {
+        msg: "Error al Finalizar el tramite",
+        classname: "bg-red-400 p-4 rounded font-bold shadow-md text-center",
+      };
+
+      dispatch({
+        type: ERROR_FINALIZAR,
+        payload: alerta,
+      });
+      // Ocultar la alerta despues de 5 segundos
+      setTimeout(() => {
+        dispatch({
+          type: OCULTAR_MENSAJE,
+        });
+      }, 4000);
+    }
+  };
 
   return (
     <tramiteContext.Provider
@@ -405,6 +441,8 @@ const TramiteState = props => {
         resDerivarTramites: state.resDerivarTramites,
         msgEliminarTramite: state.msgEliminarTramite,
         resEliminarTramite: state.resEliminarTramite,
+        msgFinalizarTramite: state.msgFinalizarTramite,
+        resFinalizarTramite: state.resFinalizarTramite,
         registrarTramite,
         BuscarTramite,
         listarTramites,
@@ -414,6 +452,7 @@ const TramiteState = props => {
         derivarTramites,
         rechazarTramites,
         eliminarTramite,
+        finalizarTramite,
       }}
     >
       {props.children}

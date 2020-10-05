@@ -43,4 +43,7 @@ router.post("/derivarTramite", auth, tramiteController.derivarTramite);
 // Eliminar tramite por ID
 router.post("/eliminarTramite", auth, tramiteController.eliminarTramite);
 
+// Finalizar Tramites por ID
+router.post("/finalizarTramite", auth, tramiteController.finalizarTramite);
+
 module.exports = router;

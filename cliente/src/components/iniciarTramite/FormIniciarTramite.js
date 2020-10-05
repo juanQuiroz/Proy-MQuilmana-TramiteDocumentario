@@ -8,7 +8,6 @@ const FormIniciarTramite = () => {
   const AuthContext = useContext(authContext);
   const {
     usuario,
-    cargando,
     listarUsuarios,
     listaUsuarios,
     ususarioAutenticado,

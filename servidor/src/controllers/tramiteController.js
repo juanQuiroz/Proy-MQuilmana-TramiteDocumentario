@@ -101,6 +101,7 @@ exports.listarTramitesUsuario = async (req, res) => {
 
     const derivaciones = await Derivaciones.find({
       areaDestino: areaAtual,
+      finalizado: false,
       fechaAceptado: null,
       fechaRechazado: null,
     });
@@ -268,5 +269,33 @@ exports.eliminarTramite = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send("Error al eliminar el tramite");
+  }
+};
+
+// Finalizar tramites (finaliza una derivacion????)
+exports.finalizarTramite = async (req, res) => {
+  try {
+    const { id } = req.body;
+    await Derivaciones.findByIdAndUpdate(
+      {
+        _id: id,
+      },
+      { finalizado: true, derivado: true },
+      { new: true },
+    );
+    const derivacion = await Derivaciones.findById({ _id: id });
+    await Tramites.findByIdAndUpdate(
+      {
+        _id: derivacion.tramite,
+      },
+      { estado: true },
+      { new: true },
+    );
+
+    await derivacion.save();
+    res.json({ msg: "Finalizacion de tramite exitosa" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error al finalizar el tramite");
   }
 };

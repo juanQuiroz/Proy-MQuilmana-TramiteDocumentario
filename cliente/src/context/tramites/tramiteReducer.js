@@ -17,6 +17,8 @@ import {
   ERROR_DERIVARTRAMITES,
   EXITO_ELIMINAR,
   ERROR_ELIMINAR,
+  EXITO_FINALIZAR,
+  ERROR_FINALIZAR,
 } from "../../types/index";
 
 export default (state, action) => {
@@ -38,13 +40,13 @@ export default (state, action) => {
       return {
         ...state,
         msgRegistrarTramite: true,
-        listaTramitesUsuario: action.payload,
+        mensaje: action.payload,
       };
     case ERROR_LISTARTRAMITEUSUARIO:
       return {
         ...state,
         msgListarTramitesUsuario: true,
-        mensaje: action.payload,
+        listaTramitesUsuario: action.payload,
       };
 
     case EXITO_BUSCARPORCOD:
@@ -109,6 +111,13 @@ export default (state, action) => {
         ...state,
         msgEliminarTramite: true,
         resEliminarTramite: action.payload,
+      };
+    case EXITO_FINALIZAR:
+    case ERROR_FINALIZAR:
+      return {
+        ...state,
+        msgFinalizarTramite: true,
+        resFinalizarTramite: action.payload,
       };
     case EXITO_DERIVARTRAMITES:
     case ERROR_DERIVARTRAMITES:

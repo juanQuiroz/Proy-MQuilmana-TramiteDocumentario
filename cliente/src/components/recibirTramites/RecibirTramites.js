@@ -49,7 +49,7 @@ const RecibirTramites = () => {
     });
     setTimeout(() => {
       window.location.reload();
-    }, 2000);
+    }, 3000);
   };
   const onclickButtonRechazar = e => {
     e.preventDefault();
@@ -59,7 +59,7 @@ const RecibirTramites = () => {
     });
     setTimeout(() => {
       window.location.reload();
-    }, 2000);
+    }, 3000);
   };
   return (
     <Fragment>
