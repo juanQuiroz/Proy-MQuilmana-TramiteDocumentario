@@ -18,7 +18,7 @@ const Busqueda = () => {
     e.preventDefault();
     try {
       const res = await Axios.post(
-        "http://localhost:4000/api/tramite/obtenerTramiteSE",
+        "https://sistradbackend.herokuapp.com/api/tramite/obtenerTramiteSE",
         { codigo: codigo.codigo },
       );
       console.log(res.data);
@@ -39,7 +39,7 @@ const Busqueda = () => {
   };
 
   return (
-    <div className="m-3">
+    <div className="m-3 md:m-8">
       {resExist ? (
         <div className="bg-white rounded shadow  p-2">
           <h1 className="font-bold text-2xl text-gray-700 text-s mb-4">
@@ -84,7 +84,7 @@ const Busqueda = () => {
           <h1 className="text-green-700 text-xl">Historial de Derivaciones</h1>
 
           {resp.derivaciones.map(derivacion => (
-            <div className="p-1 bg-gray-200 shadow rounded-md mb-2">
+            <div className="p-1 bg-gray-200 shadow rounded-sm mb-2">
               <h1 className="text-gray-900 font-semibold mb-0">
                 Area de Origen:
                 <span className="mx-2  text-gray-800 font-light">
@@ -138,43 +138,45 @@ const Busqueda = () => {
         </div>
       ) : (
         <div>
-          <h1 className="text-green-600 text-2xl font-medium text-left font-centurygothic mb-4">
+          <h1 className="text-green-600 text-2xl font-medium text-left font-centurygothic mb-4 md:text-4xl">
             Hacer seguimiento por codigo de trámite
           </h1>
-          <img clasName="w-auto mt-6" src={buscar} alt="" />
-          <form
-            onSubmit={onSubmitForm}
-            className="font-light  mt-6 text-black bg-gray-200 p-4 rounded shadow"
-          >
-            {error ? (
-              <p className="font-bold text-center bg-red-400 shadow-sm  p-2 rounded-md text-gray-800 ">
-                Error, Trámite no encontrado
-              </p>
-            ) : (
-              <p className="font-base text-center  text-gray-800 ">
-                Ingrese su código de tramite para realizar seguimiento de su
-                tramite.
-              </p>
-            )}
-
-            <div className="mt-4">
-              <label htmlFor="codigo" className="text-left font-semibold">
-                Ingrese código de trámite:
-              </label>
-              <input
-                type="text"
-                className="w-full mt-2  shadow-xs border-none p-1"
-                onChange={onchange}
-                name="codigo"
-              />
-            </div>
-            <button
-              type="onSubmit"
-              className="rounded-full shadow-sm font-semibold center  hover:bg-yellow-600 bg-yellow-500 p-1 w-full h-10 mt-4"
+          <div className="grid md:grid-cols-2 gap-8">
+            <img clasName="w-auto mt-6" src={buscar} alt="" />
+            <form
+              onSubmit={onSubmitForm}
+              className="font-light  mt-6 text-black bg-gray-200 p-4 rounded shadow md:my-10 md:py-16"
             >
-              Buscar trámite
-            </button>
-          </form>
+              {error ? (
+                <p className="font-bold text-center bg-red-400 shadow-sm  p-2 rounded-md text-gray-800 ">
+                  Error, Trámite no encontrado
+                </p>
+              ) : (
+                <p className="font-base text-center  text-gray-800 ">
+                  Ingrese su código de tramite para realizar seguimiento de su
+                  tramite.
+                </p>
+              )}
+
+              <div className="mt-4">
+                <label htmlFor="codigo" className="text-left font-semibold">
+                  Ingrese código de trámite:
+                </label>
+                <input
+                  type="text"
+                  className="w-full mt-2  shadow-xs border-none p-1"
+                  onChange={onchange}
+                  name="codigo"
+                />
+              </div>
+              <button
+                type="onSubmit"
+                className="rounded-full shadow-sm font-semibold center  hover:bg-yellow-600 bg-yellow-500 p-1 w-full h-10 mt-4"
+              >
+                Buscar trámite
+              </button>
+            </form>
+          </div>
         </div>
       )}
     </div>
