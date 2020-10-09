@@ -46,4 +46,7 @@ router.post("/eliminarTramite", auth, tramiteController.eliminarTramite);
 // Finalizar Tramites por ID
 router.post("/finalizarTramite", auth, tramiteController.finalizarTramite);
 
+// Finalizar Tramites para sistema externo
+router.post("/obtenerTramiteSE", tramiteController.obtenerTramiteSE);
+
 module.exports = router;

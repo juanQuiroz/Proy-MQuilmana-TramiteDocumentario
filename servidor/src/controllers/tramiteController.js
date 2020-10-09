@@ -299,3 +299,25 @@ exports.finalizarTramite = async (req, res) => {
     res.status(500).send("Error al finalizar el tramite");
   }
 };
+
+exports.obtenerTramiteSE = async (req, res) => {
+  try {
+    // Extraer codigo del req
+    const { codigo } = req.body;
+
+    const tramite = await Tramites.findOne({
+      $or: [{ codTramite: codigo }, { codExpediente: codigo }],
+    });
+
+    if (!tramite) {
+      return res.status(404).json({ msg: "Tramite no encotrado" });
+    }
+
+    const derivaciones = await Derivaciones.find({ tramite: tramite._id });
+
+    res.json({ tramite, derivaciones });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "Error al conectar con la base de datos" });
+  }
+};
