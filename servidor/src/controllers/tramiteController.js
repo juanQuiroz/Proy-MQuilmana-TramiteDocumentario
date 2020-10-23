@@ -34,7 +34,7 @@ exports.crearTramite = async (req, res) => {
         asunto,
         areaDestino,
         descripcion: "Primera derivacion",
-        fechaDerivacion: Date.now(),
+        fechaDerivacion: Date.now() - 18000000,
         fechaAceptado: null,
         fechaRechazado: null,
       });
@@ -137,7 +137,7 @@ exports.aceptarTramites = async (req, res) => {
         {
           _id: id,
         },
-        { fechaAceptado: Date.now() },
+        { fechaAceptado: Date.now() - 18000000 },
         { new: true },
       );
     });
@@ -178,7 +178,7 @@ exports.rechazarTramites = async (req, res) => {
         asunto: derivacion.asunto,
         areaDestino: derivacion.areaOrigen,
         descripcion: "Retorna al area por rechazo",
-        fechaDerivacion: Date.now(),
+        fechaDerivacion: Date.now() - 18000000,
         fechaAceptado: null,
         fechaRechazado: null,
       });
@@ -237,7 +237,7 @@ exports.derivarTramite = async (req, res) => {
       asunto,
       areaDestino,
       descripcion,
-      fechaDerivacion: Date.now(),
+      fechaDerivacion: Date.now() - 18000000,
       fechaAceptado: null,
       fechaRechazado: null,
     });

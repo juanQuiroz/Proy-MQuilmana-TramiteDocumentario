@@ -20,8 +20,8 @@ export default (state, action) => {
     //     ...state,
     //     cargando: false,
     //   };
-
-    case LOGIN_EXITOSO: // Guardar token en localstorage
+    // Guardar token en localstoragea
+    case LOGIN_EXITOSO:
       localStorage.setItem("token", action.payload.token);
       return {
         ...state,

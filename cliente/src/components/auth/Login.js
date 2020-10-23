@@ -58,7 +58,7 @@ const Login = props => {
         <div className="flex justify-between items-center mx-5">
           <img className="mt-2" src={muniquilmanaescudo} width="5%" alt="" />
           <h1 className="flex-1 text-center text-2xl">
-            Municipalidad Dsitrital de Quilmaná - Sistema de Trámite
+            Municipalidad Distrital de Quilmaná - Sistema de Trámite
             Documentario
           </h1>
           <img className="mt-2" src={muniquilmanaescudo} width="5%" alt="" />

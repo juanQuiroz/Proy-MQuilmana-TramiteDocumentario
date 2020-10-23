@@ -22,6 +22,9 @@ const RecibirTramites = () => {
   const AuthContext = useContext(authContext);
   const { usuario } = AuthContext;
 
+  // state de las clases
+  const [clase, setClase] = useState({ clase: null });
+
   useEffect(() => {
     if (usuario) {
       const areaAtual = usuario.nombreArea;
@@ -29,9 +32,9 @@ const RecibirTramites = () => {
     }
   }, [usuario]);
 
-  if (listaTramitesUsuario) {
-    console.log(listaTramitesUsuario.derivaciones.length);
-  }
+  // if (listaTramitesUsuario) {
+  //   console.log(listaTramitesUsuario.derivaciones.length);
+  // }
 
   // State de las derivaciones
   const [derivacionesID, setDerivacionesID] = useState({
@@ -61,6 +64,27 @@ const RecibirTramites = () => {
       window.location.reload();
     }, 3000);
   };
+  var inicio;
+  var fin;
+  var cantDias;
+  var classDias = "bg-green-200";
+  // colores condicionales
+  // if (listaTramitesUsuario) {
+  //   listaTramitesUsuario.derivaciones.map(derivacion => {
+  //     inicio = new Date(derivacion.fechaDerivacion);
+  //     fin = new Date();
+  //     cantDias = fin.getDate() - inicio.getDate();
+  //     console.log(derivacion.codTramite, cantDias);
+  //   });
+  //   if (cantDias > 3) {
+  //     classDias = "bg-red-200";
+  //   } else if (cantDias > 0 && cantDias <= 3) {
+  //     classDias = "bg-yellow-200";
+  //   } else {
+  //     classDias = "";
+  //   }
+  // }
+  // new Date().getDate()  -   new Date(derivacion.fechaDerivacion).getDate()
   return (
     <Fragment>
       <Navbar />
@@ -86,49 +110,86 @@ const RecibirTramites = () => {
               <th className="px-4 py-2">Elegir</th>
             </tr>
           </thead>
-          <tbody>
-            {listaTramitesUsuario ? (
-              listaTramitesUsuario.derivaciones.length ? (
-                listaTramitesUsuario.derivaciones.map(derivacion => (
-                  <tr key={derivacion._id}>
-                    <td className="border px-4 py-2">
-                      {derivacion.codTramite}
-                    </td>
-                    <td className="border px-4 py-2">
-                      {derivacion.codExpediente}
-                    </td>
-                    <td className="border px-4 py-2">{derivacion.asunto}</td>
-                    <td className="border px-4 py-2">
-                      {derivacion.descripcion}
-                    </td>
-                    <td className="border px-4 py-2">
-                      {derivacion.areaOrigen}
-                    </td>
-                    <td className="border px-4 py-2">
-                      {derivacion.fechaDerivacion.slice(0, 10)}
-                    </td>
-                    <td className="border px-4 py-2 ">
-                      <input
-                        type="checkbox"
-                        className="ml-3"
-                        value={derivacion._id}
-                        name="idtramite"
-                        onClick={e => {
-                          setDerivacionesID({
-                            ids: [...derivacionesID.ids, e.target.value],
-                          });
-                        }}
-                      />
-                    </td>
-                  </tr>
-                ))
-              ) : (
-                <h1 className=" mx-20 my-12 p-5 bg-green-400 shadow rounded absolute w-4/5 text-3xl text-center font-light text-gray-800">
-                  No Hay tramites por aceptar o rechazar
-                </h1>
-              )
-            ) : null}
-          </tbody>
+
+          {listaTramitesUsuario ? (
+            listaTramitesUsuario.derivaciones.length ? (
+              listaTramitesUsuario.derivaciones.map(derivacion => (
+                <tbody>
+                  {new Date().getDate() -
+                    new Date(derivacion.fechaDerivacion).getDate() >
+                  3 ? (
+                    <tr key={derivacion._id} className={`bg-red-300`}>
+                      <td className="border px-4 py-2">
+                        {derivacion.codTramite}
+                      </td>
+                      <td className="border px-4 py-2">
+                        {derivacion.codExpediente}
+                      </td>
+                      <td className="border px-4 py-2">{derivacion.asunto}</td>
+                      <td className="border px-4 py-2">
+                        {derivacion.descripcion}
+                      </td>
+                      <td className="border px-4 py-2">
+                        {derivacion.areaOrigen}
+                      </td>
+                      <td className="border px-4 py-2 bg-red-400">
+                        {derivacion.fechaDerivacion.slice(0, 10)}
+                      </td>
+                      <td className="border px-4 py-2 ">
+                        <input
+                          type="checkbox"
+                          className="ml-3"
+                          value={derivacion._id}
+                          name="idtramite"
+                          onClick={e => {
+                            setDerivacionesID({
+                              ids: [...derivacionesID.ids, e.target.value],
+                            });
+                          }}
+                        />
+                      </td>
+                    </tr>
+                  ) : (
+                    <tr key={derivacion._id} className={``}>
+                      <td className="border px-4 py-2">
+                        {derivacion.codTramite}
+                      </td>
+                      <td className="border px-4 py-2">
+                        {derivacion.codExpediente}
+                      </td>
+                      <td className="border px-4 py-2">{derivacion.asunto}</td>
+                      <td className="border px-4 py-2">
+                        {derivacion.descripcion}
+                      </td>
+                      <td className="border px-4 py-2">
+                        {derivacion.areaOrigen}
+                      </td>
+                      <td className="border px-4 py-2">
+                        {derivacion.fechaDerivacion.slice(0, 10)}
+                      </td>
+                      <td className="border px-4 py-2 ">
+                        <input
+                          type="checkbox"
+                          className="ml-3"
+                          value={derivacion._id}
+                          name="idtramite"
+                          onClick={e => {
+                            setDerivacionesID({
+                              ids: [...derivacionesID.ids, e.target.value],
+                            });
+                          }}
+                        />
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              ))
+            ) : (
+              <h1 className=" mx-20 my-12 p-5 bg-green-400 shadow rounded absolute w-4/5 text-3xl text-center font-light text-gray-800">
+                No Hay tramites por aceptar o rechazar
+              </h1>
+            )
+          ) : null}
         </table>
       </div>
       <div className="flex items-center justify-center mt-5">

@@ -61,15 +61,15 @@ const FormSubirArchivo = () => {
     <form
       onSubmit={onSubmit}
       encType="multipart/form-data"
-      className="bg-white shadow-md rounded mx-10 mt-10 px-6 pt-3 pb-8 mb-8"
+      className="bg-green-200 shadow-md rounded mx-10 mt-10 px-6 pt-3 pb-8 mb-8"
     >
-      <h1 className="font-light text-4xl text-left mb-4 text-green-500">
+      <h1 className="font-light text-4xl text-left mb-4 text-black">
         Subir Archivo
       </h1>
 
       {error ? (
         <div className="bg-red-400 p-4 rounded font-bold shadow-md text-center">
-          ¡ Es Necesario escribir el codigo de tramite !
+          ¡ Es Necesario escribir el código de trámite !
         </div>
       ) : null}
       {resServer ? (
@@ -84,7 +84,7 @@ const FormSubirArchivo = () => {
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="usuario"
           >
-            Codigo de tramite
+            Código de trámite
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

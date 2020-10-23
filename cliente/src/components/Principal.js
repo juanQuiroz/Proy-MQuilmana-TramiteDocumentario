@@ -32,28 +32,28 @@ const Principal = () => {
       <div className="grid grid-cols-3 gap-4 mx-12 my-32">
         <Link
           to="/iniciar-tramite"
-          className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
+          className="bg-green-300 hover:bg-green-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
         >
           <img className="mr-4" src={iniciarTramite} width="23%" alt="" />
           <span className="font-hairline text-4xl">Iniciar Trámite</span>
         </Link>
         <Link
           to="/recibir-tramites"
-          className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
+          className="bg-green-300 hover:bg-green-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
         >
           <img className="mr-4" src={recibirTramite} width="23%" alt="" />
           <span className="font-hairline text-4xl">Recibir Trámite</span>
         </Link>
         <Link
           to="/derivar-tramites"
-          className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
+          className="bg-green-300 hover:bg-green-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
         >
           <img className="mr-4" src={iniciarTramite} width="23%" alt="" />
           <span className="font-hairline text-4xl">Derivar Trámites</span>
         </Link>
         <Link
           to="/Buscar-tramite"
-          className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
+          className="bg-green-300 hover:bg-green-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
         >
           <img className="mr-4" src={BuscarTramite} width="23%" alt="" />
           <span className="font-hairline text-4xl">Buscar Trámite</span>
@@ -63,7 +63,7 @@ const Principal = () => {
           usuario.adminRol ? (
             <Link
               to="/gestionarTramites"
-              className="bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
+              className="bg-teal-200 hover:bg-teal-300 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
             >
               <img className="mr-4" src={gestiTramite} width="23%" alt="" />
               <span className="font-hairline text-4xl">Eliminar Trámites</span>
@@ -71,7 +71,7 @@ const Principal = () => {
           ) : (
             <Link
               to="/principal"
-              className="opacity-50 bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
+              className="opacity-50 bg-teal-200 hover:bg-teal-300 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
             >
               <img className="mr-4" src={gestiTramite} width="23%" alt="" />
               <span className="font-hairline text-4xl">Eliminar Trámites</span>
@@ -82,7 +82,7 @@ const Principal = () => {
           usuario.adminRol ? (
             <Link
               to="/administrar-usuarios"
-              className=" bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
+              className=" bg-teal-200 hover:bg-teal-300 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
             >
               <img className="mr-4" src={config} width="23%" alt="" />
               <span className="font-hairline text-4xl">
@@ -92,7 +92,7 @@ const Principal = () => {
           ) : (
             <Link
               to="/principal"
-              className=" opacity-50 bg-purple-100 hover:bg-gray-200 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
+              className=" opacity-50 bg-teal-200 hover:bg-teal-300 shadow-md text-gray-800  font-bold p-4 rounded inline-flex items-center"
             >
               <img className="mr-4" src={config} width="23%" alt="" />
               <span className="font-hairline text-4xl ">

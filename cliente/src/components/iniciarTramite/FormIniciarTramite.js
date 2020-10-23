@@ -127,7 +127,7 @@ const FormIniciarTramite = () => {
   return (
     <form
       onSubmit={onSubmitForm}
-      className="bg-white shadow-md rounded mx-10 mt-10 px-6 pt-3 pb-8 mb-8"
+      className="bg-green-200 shadow-md rounded mx-10 mt-10 px-6 pt-3 pb-8 mb-8"
     >
       {/* {error ? (
         <div className="bg-red-400 p-4 rounded font-bold shadow-md text-center mb-1">
@@ -137,7 +137,7 @@ const FormIniciarTramite = () => {
       {msgRegistrarTramite ? (
         <div className={`${mensaje.classname}`}>{mensaje.msg}</div>
       ) : null}
-      <h1 className="font-light text-4xl text-left mb-4 text-green-500">
+      <h1 className="font-light text-4xl text-left mb-4 text-black">
         Iniciar Trámite
       </h1>
 
@@ -147,7 +147,7 @@ const FormIniciarTramite = () => {
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="usuario"
           >
-            Codigo de expediente (*)
+            Código de expediente (*)
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -173,7 +173,7 @@ const FormIniciarTramite = () => {
             className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
           >
             <option selected disabled>
-              -- Seleccione el origen del tramite --
+              -- Seleccione el origen del trámite --
             </option>
             <option>EXTERNO</option>
             <option>INTERNO</option>
@@ -202,10 +202,12 @@ const FormIniciarTramite = () => {
             className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
           >
             <option selected disabled>
-              -- Seleccione el tipo de tramite --
+              -- Seleccione el tipo de trámite --
             </option>
             <option>CARTA</option>
             <option>EXPEDIENTE</option>
+            <option>OFICIO MÚLTIPLE</option>
+            <option>MEMORIALES</option>
             <option>FUT</option>
             <option>OFICIO</option>
             <option>SOLICITUD</option>
@@ -234,17 +236,13 @@ const FormIniciarTramite = () => {
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="usuario"
           >
-            Destiono Area / Gerencia / SubGerencia (*)
+            Destiono Área / Gerencia / SubGerencia (*)
           </label>
           <select
             onClick={onchangeInput}
             className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
             name="areaDestino"
           >
-            <option selected disabled>
-              -- Seleccione el area --
-            </option>
-
             {listaUsuarios
               ? listaUsuarios.usuarios.map(usuario => (
                   <option value={usuario.nombreArea} key={usuario._id}>

@@ -2,8 +2,12 @@ body {
   background-color: rgb(239, 239, 239);
 }
 
-.fondo-gris {
-  background-color: rgb(129, 129, 129);
+.fondo-nav {
+  background-color: rgb(221, 221, 221);
+}
+
+.fondo-mod {
+  background-color: rgb(173, 219, 88);
 }
 
 .estilos-tabla {

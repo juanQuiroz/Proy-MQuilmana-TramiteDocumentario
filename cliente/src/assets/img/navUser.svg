@@ -1,15 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="91.24" height="91.238" viewBox="0 0 91.24 91.238">
-  <g id="user-connection-25-518002" transform="translate(-2.474 -2.474)">
-    <g id="Grupo_298" data-name="Grupo 298" transform="translate(25.689 16.949)">
-      <path id="Trazado_1440" data-name="Trazado 1440" d="M60.549,52.892H15.74V39.744A13.96,13.96,0,0,1,29.7,25.784H46.587a13.96,13.96,0,0,1,13.96,13.96V52.89Z" transform="translate(-15.74 4.888)" fill="none" stroke="#727272" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3"/>
-      <ellipse id="Elipse_155" data-name="Elipse 155" cx="9.801" cy="9.801" rx="9.801" ry="9.801" transform="translate(12.604)" fill="none" stroke="#727272" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3"/>
-    </g>
-    <g id="Grupo_301" data-name="Grupo 301" transform="translate(3.974 3.974)">
-      <path id="Trazado_1445" data-name="Trazado 1445" d="M60.549,52.892H15.74V39.744A13.96,13.96,0,0,1,29.7,25.784H46.587a13.96,13.96,0,0,1,13.96,13.96V52.89Z" transform="translate(5.975 17.864)" fill="none" stroke="#727272" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3"/>
-      <ellipse id="Elipse_157" data-name="Elipse 157" cx="9.801" cy="9.801" rx="9.801" ry="9.801" transform="translate(34.319 12.976)" fill="none" stroke="#727272" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3"/>
-      <g id="Grupo_300" data-name="Grupo 300">
-        <ellipse id="Elipse_158" data-name="Elipse 158" cx="44.12" cy="44.119" rx="44.12" ry="44.119" fill="none" stroke="#727272" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3"/>
-      </g>
-    </g>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 91.2 91.2" style="enable-background:new 0 0 91.2 91.2;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#1D1D1B;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#1D1D1B;stroke-miterlimit:10;}
+</style>
+<g id="user-connection-25-518002" transform="translate(-2.474 -2.474)">
+	<g id="Grupo_298" transform="translate(25.689 16.949)">
+		<path id="Trazado_1440" class="st0" d="M44.8,57.8H0V44.6c0-7.7,6.3-14,14-14h16.9c7.7,0,14,6.3,14,14L44.8,57.8L44.8,57.8z"/>
+		<ellipse id="Elipse_155" class="st0" cx="22.4" cy="9.8" rx="9.8" ry="9.8"/>
+	</g>
+	<g id="Grupo_301" transform="translate(3.974 3.974)">
+		<path id="Trazado_1445" class="st1" d="M66.5,70.8H21.7V57.6c0-7.7,6.3-14,14-14h16.9c7.7,0,14,6.3,14,14L66.5,70.8L66.5,70.8z"/>
+		<ellipse id="Elipse_157" class="st1" cx="44.1" cy="22.8" rx="9.8" ry="9.8"/>
+		<g id="Grupo_300">
+			<ellipse id="Elipse_158" class="st1" cx="44.1" cy="44.1" rx="44.1" ry="44.1"/>
+		</g>
+	</g>
+</g>
 </svg>

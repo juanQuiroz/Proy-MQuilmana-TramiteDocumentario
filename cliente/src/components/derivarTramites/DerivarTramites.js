@@ -103,57 +103,102 @@ const DerivarTramites = () => {
               <th className="px-4 py-2">Elegir</th>
             </tr>
           </thead>
-          <tbody>
-            {listaTramitesAceptados ? (
-              listaTramitesAceptados.derivaciones.length ? (
-                listaTramitesAceptados.derivaciones.map(derivacion => (
-                  <tr key={derivacion._id}>
-                    <td className="border px-4 py-2">
-                      {derivacion.codTramite}
-                    </td>
-                    <td className="border px-4 py-2">
-                      {derivacion.codExpediente}
-                    </td>
-                    <td className="border px-4 py-2">{derivacion.asunto}</td>
-                    <td className="border px-4 py-2">
-                      {derivacion.descripcion}
-                    </td>
-                    <td className="border px-4 py-2">
-                      {derivacion.areaOrigen}
-                    </td>
-                    <td className="border px-4 py-2">
-                      {derivacion.fechaDerivacion.slice(0, 10)}
-                    </td>
-                    <td className="border px-4 py-2 ">
-                      <button
-                        type="button"
-                        className="ml-3 bg-yellow-500 p-1 shadow-xs rounded"
-                        value={derivacion.tramite}
-                        name="idtramite"
-                        onClick={e => {
-                          setDerivacionesID({
-                            ...derivacionesID,
-                            tramiteId: e.target.value,
-                            derivacionId: derivacion._id,
-                            codTramite: derivacion.codTramite,
-                            codExpediente: derivacion.codExpediente,
-                            asunto: derivacion.asunto,
-                          });
-                          setTramiteSeleccionado(true);
-                        }}
-                      >
-                        Derivar
-                      </button>
-                    </td>
-                  </tr>
-                ))
-              ) : (
-                <h1 className=" mx-20 my-12 p-5 bg-green-400 shadow rounded absolute w-4/5 text-3xl text-center font-light text-gray-800">
-                  No Hay tramites por aceptar o rechazar
-                </h1>
-              )
-            ) : null}
-          </tbody>
+
+          {listaTramitesAceptados ? (
+            listaTramitesAceptados.derivaciones.length ? (
+              listaTramitesAceptados.derivaciones.map(derivacion => (
+                <tbody>
+                  {new Date().getDate() -
+                    new Date(derivacion.fechaDerivacion).getDate() >
+                  3 ? (
+                    <tr key={derivacion._id} className={`bg-red-300`}>
+                      <td className="border px-4 py-2">
+                        {derivacion.codTramite}
+                      </td>
+                      <td className="border px-4 py-2">
+                        {derivacion.codExpediente}
+                      </td>
+                      <td className="border px-4 py-2">{derivacion.asunto}</td>
+                      <td className="border px-4 py-2">
+                        {derivacion.descripcion}
+                      </td>
+                      <td className="border px-4 py-2">
+                        {derivacion.areaOrigen}
+                      </td>
+                      <td className="border px-4 py-2 bg-red-400">
+                        {derivacion.fechaDerivacion.slice(0, 10)}
+                      </td>
+                      <td className="border px-4 py-2 ">
+                        <button
+                          type="button"
+                          className="ml-3 bg-yellow-500 p-1 shadow-xs rounded"
+                          value={derivacion.tramite}
+                          name="idtramite"
+                          onClick={e => {
+                            setDerivacionesID({
+                              ...derivacionesID,
+                              tramiteId: e.target.value,
+                              derivacionId: derivacion._id,
+                              codTramite: derivacion.codTramite,
+                              codExpediente: derivacion.codExpediente,
+                              asunto: derivacion.asunto,
+                            });
+                            setTramiteSeleccionado(true);
+                          }}
+                        >
+                          Derivar
+                        </button>
+                      </td>
+                    </tr>
+                  ) : (
+                    <tr key={derivacion._id}>
+                      <td className="border px-4 py-2">
+                        {derivacion.codTramite}
+                      </td>
+                      <td className="border px-4 py-2">
+                        {derivacion.codExpediente}
+                      </td>
+                      <td className="border px-4 py-2">{derivacion.asunto}</td>
+                      <td className="border px-4 py-2">
+                        {derivacion.descripcion}
+                      </td>
+                      <td className="border px-4 py-2">
+                        {derivacion.areaOrigen}
+                      </td>
+                      <td className="border px-4 py-2">
+                        {derivacion.fechaDerivacion.slice(0, 10)}
+                      </td>
+                      <td className="border px-4 py-2 ">
+                        <button
+                          type="button"
+                          className="ml-3 bg-yellow-500 p-1 shadow-xs rounded"
+                          value={derivacion.tramite}
+                          name="idtramite"
+                          onClick={e => {
+                            setDerivacionesID({
+                              ...derivacionesID,
+                              tramiteId: e.target.value,
+                              derivacionId: derivacion._id,
+                              codTramite: derivacion.codTramite,
+                              codExpediente: derivacion.codExpediente,
+                              asunto: derivacion.asunto,
+                            });
+                            setTramiteSeleccionado(true);
+                          }}
+                        >
+                          Derivar
+                        </button>
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              ))
+            ) : (
+              <h1 className=" mx-20 my-12 p-5 bg-green-400 shadow rounded absolute w-4/5 text-3xl text-center font-light text-gray-800">
+                No Hay tramites por aceptar o rechazar
+              </h1>
+            )
+          ) : null}
         </table>
       </div>
       {tramiteSeleccionado ? (
@@ -207,10 +252,6 @@ const DerivarTramites = () => {
                         name="areaDestino"
                         onClick={onChangeInput}
                       >
-                        <option selected disabled>
-                          -- Seleccione el area --
-                        </option>
-
                         {listaUsuarios
                           ? listaUsuarios.usuarios.map(usuario => (
                               <option
